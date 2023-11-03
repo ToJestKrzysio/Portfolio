@@ -12,23 +12,25 @@ export default function App() {
     useScrollRefToId([aboutRef, expirienceRef, projectsRef], parentRef, 28 * 4)
 
     return (
-        <div className="max-w-screen-xl max-h-screen py-20 mx-auto overflow-y-scroll px-28 lg:grid lg:grid-cols-2 bg-slate-900 lg:pt-28 gap-x-3 selection:bg-lime-500 selection:text-slate-200" ref={parentRef}>
-            {/* <div className="fixed inset-0 pointer-events-none lg:absolute" style={{
+        <div ref={parentRef} className="overflow-y-scroll bg-slate-900 selection:bg-lime-500/80 selection:text-slate-200">
+            <div className="max-w-screen-xl max-h-screen py-20 mx-auto px-28 lg:grid lg:grid-cols-2 lg:pt-28 gap-x-3 ">
+                {/* <div className="fixed inset-0 pointer-events-none lg:absolute" style={{
                 background: "radial-gradient(500px at top right, rgba(101, 163, 13, 0.4), transparent)",
             }} /> */}
-            <Header />
-            <div className="flex flex-col col-start-2 gap-y-6">
-                <section id="about" ref={aboutRef}>
-                    <div className="h-[300px] w-full bg-gray-700" />
-                </section>
-                <section id="expirience" ref={expirienceRef}>
-                    <Exp />
-                    <Exp />
-                    <Exp />
-                </section>
-                <section id="projects" ref={projectsRef}>
-                    <div className="h-[600px] w-full bg-lime-700" />
-                </section>
+                <Header />
+                <div className="flex flex-col col-start-2 gap-y-6">
+                    <section id="about" ref={aboutRef}>
+                        <div className="h-[300px] w-full bg-gray-700" />
+                    </section>
+                    <section id="expirience" ref={expirienceRef}>
+                        <Exp />
+                        <Exp />
+                        <Exp />
+                    </section>
+                    <section id="projects" ref={projectsRef}>
+                        <div className="h-[600px] w-full bg-lime-700" />
+                    </section>
+                </div>
             </div>
         </div>
     );
@@ -41,6 +43,8 @@ function useScrollRefToId(refs: RefObject<HTMLDivElement>[], parent: RefObject<H
 
     useLayoutEffect(() => {
         if (parent.current === null) return
+        if (location.hash === "") parent.current.scrollTo({ behavior: "smooth", top: 0 })
+
 
         const selectedRef = refs.find(ref => !!ref.current && ref.current.id === location.hash.slice(1))
         if (selectedRef === undefined || selectedRef.current === null) return
