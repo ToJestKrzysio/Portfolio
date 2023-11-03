@@ -1,6 +1,6 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
     return (
@@ -11,7 +11,7 @@ export default function Header() {
                 </Link>
                 <h3 className="mb-4 text-lg lg:mb-16">Fullstack Developer</h3>
                 <nav className="flex-col hidden lg:flex gap-y-4">
-                    <NavItem to="#about" text="About" isActive />
+                    <NavItem to="#about" text="About" />
                     <NavItem to="#expirience" text="Expirience" />
                     <NavItem to="#projects" text="Projects" />
                 </nav>
@@ -29,8 +29,11 @@ export default function Header() {
 }
 
 
-function NavItem({ to, text, isActive = false }: { to: string, text: string, isActive?: boolean }) {
+function NavItem({ to, text }: { to: string, text: string }) {
+    const location = useLocation();
 
+    console.log(location)
+    const isActive = location.hash === to
     return (
         <Link to={to} className="inline-flex items-center gap-x-2 group" data-active={isActive}>
             <hr className="w-8 border-slate-500 ease-in-out duration-300 group-hover:w-14 group-hover:border-slate-200 transition-[width] data-[active=true]:w-14 data-[active=true]:border-slate-200" data-active={isActive} />
