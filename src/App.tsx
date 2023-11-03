@@ -1,7 +1,7 @@
-import Exp from "@/components/Expirience";
-import Header from "@/components/Header";
-import { RefObject, useLayoutEffect, useRef } from "react";
 import { useLocation } from "react-router";
+import { RefObject, useLayoutEffect, useRef } from "react";
+
+import { About, Expirience, Header } from "@/components";
 
 export default function App() {
     const parentRef = useRef<HTMLDivElement>(null);
@@ -18,18 +18,21 @@ export default function App() {
                 background: "radial-gradient(500px at top right, rgba(101, 163, 13, 0.4), transparent)",
             }} /> */}
                 <Header />
-                <div className="flex flex-col col-start-2 gap-y-6">
+                <div className="flex flex-col col-start-2 gap-y-28 pb-28">
                     <section id="about" ref={aboutRef}>
-                        <div className="h-[300px] w-full bg-gray-700" />
+                        <About />
                     </section>
                     <section id="expirience" ref={expirienceRef}>
-                        <Exp />
-                        <Exp />
-                        <Exp />
+                        <Expirience />
+                        <Expirience />
+                        <Expirience />
                     </section>
                     <section id="projects" ref={projectsRef}>
                         <div className="h-[600px] w-full bg-lime-700" />
                     </section>
+                    <footer>
+                        Built with React and Tailwind CSS. Delivered to You from AWS S3.
+                    </footer>
                 </div>
             </div>
         </div>
