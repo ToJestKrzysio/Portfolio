@@ -1,14 +1,61 @@
+import Exp from "@/components/Expirience";
 import Header from "@/components/Header";
+import { RefObject, useLayoutEffect, useRef } from "react";
+import { useLocation } from "react-router";
 
 export default function App() {
+    const parentRef = useRef<HTMLDivElement>(null);
+    const aboutRef = useRef<HTMLDivElement>(null);
+    const expirienceRef = useRef<HTMLDivElement>(null);
+    const projectsRef = useRef<HTMLDivElement>(null);
+
+    useScrollRefToId([aboutRef, expirienceRef, projectsRef], parentRef, 28 * 4)
 
     return (
-        <div className="flex-col h-screen max-w-screen-xl py-20 mx-auto overflow-hidden px-28 lg:grid lg:grid-cols-2 bg-slate-900 lg:pt-28 gap-x-3">
+        <div className="max-w-screen-xl max-h-screen py-20 mx-auto overflow-y-scroll px-28 lg:grid lg:grid-cols-2 bg-slate-900 lg:pt-28 gap-x-3 selection:bg-lime-500 selection:text-slate-200" ref={parentRef}>
             {/* <div className="fixed inset-0 pointer-events-none lg:absolute" style={{
                 background: "radial-gradient(500px at top right, rgba(101, 163, 13, 0.4), transparent)",
             }} /> */}
             <Header />
-            <div>Content</div>
+            <div className="flex flex-col col-start-2 gap-y-6">
+                <section id="about" ref={aboutRef}>
+                    <div className="h-[300px] w-full bg-gray-700" />
+                </section>
+                <section id="expirience" ref={expirienceRef}>
+                    <Exp />
+                    <Exp />
+                    <Exp />
+                </section>
+                <section id="projects" ref={projectsRef}>
+                    <div className="h-[600px] w-full bg-lime-700" />
+                </section>
+            </div>
         </div>
     );
+}
+
+
+
+function useScrollRefToId(refs: RefObject<HTMLDivElement>[], parent: RefObject<HTMLDivElement>, offset: number = 0) {
+    const location = useLocation();
+
+    useLayoutEffect(() => {
+        if (parent.current === null) return
+
+        const selectedRef = refs.find(ref => !!ref.current && ref.current.id === location.hash.slice(1))
+        if (selectedRef === undefined || selectedRef.current === null) return
+
+        console.log("sel", selectedRef.current.getBoundingClientRect())
+        console.log("par", parent.current.getBoundingClientRect())
+        console.log("comp", (selectedRef.current!.getBoundingClientRect().top - parent.current.getBoundingClientRect().top - offset))
+
+        parent.current.scrollBy({
+            behavior: "smooth",
+            top: (
+                selectedRef.current!.getBoundingClientRect().top -
+                parent.current.getBoundingClientRect().top -
+                offset
+            )
+        })
+    }, [location, refs])
 }

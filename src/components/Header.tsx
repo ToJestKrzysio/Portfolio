@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
     return (
-        <header className="flex flex-col mb-10 lg:h-full lg:justify-between lg:mb-0">
+        <header className="top-0 flex flex-col py-20 mb-10 lg:fixed lg:py-28 lg:h-full lg:justify-between lg:mb-0">
             <div>
                 <Link to="/">
                     <h1 className="mb-2 text-4xl font-semibold">Krzysztof Płonka</h1>
@@ -17,10 +17,10 @@ export default function Header() {
                 </nav>
             </div>
             <div className="flex gap-x-3">
-                <a href="https://github.com/tojestkrzysio/">
+                <a href="https://github.com/tojestkrzysio/" target="blank">
                     <FontAwesomeIcon icon={faGithub} size="xl" className="ease-in-out text-slate-400 transition-color hover:text-slate-300" />
                 </a>
-                <a href="https://www.linkedin.com/in/krzysztof-plonka/">
+                <a href="https://www.linkedin.com/in/krzysztof-plonka/" target="blank">
                     <FontAwesomeIcon icon={faLinkedin} size="xl" className="ease-in-out text-slate-400 transition-color hover:text-slate-300" />
                 </a>
             </div>
