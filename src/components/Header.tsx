@@ -32,7 +32,6 @@ export default function Header() {
 function NavItem({ to, text }: { to: string, text: string }) {
     const location = useLocation();
 
-    console.log(location)
     const isActive = location.hash === to
     return (
         <Link to={to} className="inline-flex items-center gap-x-2 group" data-active={isActive}>
