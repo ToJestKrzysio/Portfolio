@@ -1,15 +1,19 @@
 import { Card } from "@/components"
 
-export default function Expirience() {
+import PlaceholderImage from "/PlaceholderImage.png";
+
+
+export default function Project() {
     return (
         <Card.Container>
-            <Card.Sidebar>2011 - Now</Card.Sidebar>
+            <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" />
             <Card.Anchor href="https://google.com/">
-                <span>Super Dev - WaloCorp</span>
+                <span>Best Project</span>
             </Card.Anchor>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quo est natus pariatur! Voluptates explicabo, consequatur saepe laudantium reprehenderit possimus, sapiente porro unde voluptatem molestias officia? Omnis explicabo in tempora?
             </p>
+            <Card.Tags tags={["Typescript", "Tailwind CSS", "React", "FastAPI", "Python", "Postgresql", "SQL"]} />
         </Card.Container>
     )
 }

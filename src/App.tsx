@@ -1,7 +1,7 @@
 import { useLocation } from "react-router";
 import { RefObject, useLayoutEffect, useRef } from "react";
 
-import { About, Expirience, Header } from "@/components";
+import { About, Card, Expirience, Header, Project } from "@/components";
 
 export default function App() {
     const parentRef = useRef<HTMLDivElement>(null);
@@ -22,14 +22,16 @@ export default function App() {
                     <section id="about" ref={aboutRef}>
                         <About />
                     </section>
-                    <section id="expirience" ref={expirienceRef}>
+                    <Card.CardGroup id="expirience" ref={expirienceRef}>
                         <Expirience />
                         <Expirience />
                         <Expirience />
-                    </section>
-                    <section id="projects" ref={projectsRef}>
-                        <div className="h-[600px] w-full bg-lime-700" />
-                    </section>
+                    </Card.CardGroup>
+                    <Card.CardGroup id="projects" ref={projectsRef}>
+                        <Project />
+                        <Project />
+                        <Project />
+                    </Card.CardGroup>
                     <footer>
                         Built with React and Tailwind CSS. Delivered to You from AWS S3.
                     </footer>
