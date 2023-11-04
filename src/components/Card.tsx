@@ -11,7 +11,7 @@ export const CardGroup = forwardRef((
 ))
 
 export function Container({ children }: { children: ReactNode }) {
-    return <div className="relative p-5 pl-32 transition-all ease-in-out rounded-lg group hover:bg-slate-700/30  hover:!opacity-100 group-hover/cards:opacity-50">
+    return <div className="relative p-5 pl-32 transition-all duration-500 ease-in-out rounded-lg group hover:bg-slate-700/30  hover:!opacity-100 group-hover/cards:opacity-50">
         {children}
     </div>
 }
@@ -31,4 +31,14 @@ export function Anchor({ children, href }: ComponentProps<typeof DefaultAnchor>)
 
 export function Content({ children }: { children: ReactNode }) {
     return <span className="block">{children}</span>
+}
+
+export function Tags({ tags }: { tags: string[] }) {
+    return <ul className="flex flex-wrap pt-3 gap-x-2 gap-y-2">
+        {tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+    </ul>
+}
+
+export function Tag({ children }: { children: ReactNode }) {
+    return <span className="px-2 py-1 text-xs font-medium rounded-lg text-lime-500 bg-lime-500/10 whitespace-nowrap">{children}</span>
 }

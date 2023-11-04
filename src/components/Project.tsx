@@ -13,6 +13,7 @@ export default function Project() {
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quo est natus pariatur! Voluptates explicabo, consequatur saepe laudantium reprehenderit possimus, sapiente porro unde voluptatem molestias officia? Omnis explicabo in tempora?
             </p>
+            <Card.Tags tags={["Typescript", "Tailwind CSS", "React", "FastAPI", "Python", "Postgresql", "SQL"]} />
         </Card.Container>
     )
 }
