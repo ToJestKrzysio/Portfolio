@@ -1,4 +1,4 @@
-import { Anchor, Card } from "@/components"
+import { Card } from "@/components"
 
 export default function Expirience() {
     return (
