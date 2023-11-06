@@ -1,11 +1,12 @@
 import { Card } from "@/components"
 
-import PlaceholderImage from "/PlaceholderImage.png";
+import IntroSpotImg from "/IntroSpot.png";
+import JungleGameImg from "/JungleGame.png";
 
 export function JungleGame() {
     return (
         <Card.Container>
-            <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" />
+            <Card.SidebarImage src={JungleGameImg} alt="Placeholder" />
             <Card.Content>
                 <Card.HeaderAnchor href="https://github.com/ToJestKrzysio/TheJungleGame">Jungle Game</Card.HeaderAnchor>
                 <p className="text-sm text-slate-400">
@@ -22,7 +23,7 @@ export function JungleGame() {
 export function EventManager() {
     return (
         <Card.Container>
-            <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" />
+            {/* <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" /> */}
             <Card.Content>
                 <Card.HeaderAnchor href="https://github.com/ToJestKrzysio/EventMaster">Event Manager</Card.HeaderAnchor>
                 <p className="text-sm text-slate-400">
@@ -38,7 +39,7 @@ export function EventManager() {
 export function IntroSpot() {
     return (
         <Card.Container>
-            <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" />
+            <Card.SidebarImage src={IntroSpotImg} alt="IntroSpot thumbnail" />
             <Card.Content>
                 <Card.HeaderAnchor href="https://github.com/ToJestKrzysio/Portfolio">IntroSpot</Card.HeaderAnchor>
                 <p className="text-sm text-slate-400">

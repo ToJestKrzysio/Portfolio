@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { About, Card, Expirience, Header, Project } from "@/components";
+import { About, Anchor, Card, Expirience, Header, Project } from "@/components";
 import { useScrollRefToId } from "@/hooks";
 
 
@@ -33,11 +33,13 @@ export default function App() {
                         <Project.EventManager />
                         <Project.IntroSpot />
                     </Card.CardGroup>
-                    <footer>
-                        Built with React and Tailwind CSS. Delivered to You from AWS S3.
+                    <footer className="text-sm text-slate-400">
+                        Built with <Card.WhiteAnchor href="https://react.dev/">React</Card.WhiteAnchor> and <Card.WhiteAnchor href="https://tailwindcss.com/">Tailwind CSS</Card.WhiteAnchor>.
+                        Delivered to You from <Card.WhiteAnchor href="https://aws.amazon.com/">AWS</Card.WhiteAnchor>.<br />
+                        Design based upon <Card.WhiteAnchor href="https://brittanychiang.com/">brittanychiang.com</Card.WhiteAnchor>
                     </footer>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
