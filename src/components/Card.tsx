@@ -45,11 +45,11 @@ export function Tag({ children }: { children: ReactNode }) {
     return <span className="px-2 py-1 text-xs font-medium rounded-lg text-lime-500 bg-lime-500/10 whitespace-nowrap">{children}</span>
 }
 
-export const WhiteAnchor = (props: ComponentProps<typeof Anchor>) => <Anchor className="text-slate-200" {...props} />
+export const WhiteAnchor = (props: ComponentProps<typeof Anchor>) => <DefaultAnchor className="text-slate-200" {...props} />
 export const HeaderAnchor = ({ href, children }: ComponentProps<typeof Anchor>) => (
-    <Anchor href={href}>
+    <DefaultAnchor href={href}>
         <h2 className="mb-2">
             {children} <FontAwesomeIcon icon={faLink} className="ml-1" />
         </h2>
-    </Anchor>
+    </DefaultAnchor>
 )

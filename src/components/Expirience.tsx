@@ -28,7 +28,7 @@ export function SenseStreet() {
                     </ul>
                 </p>
             </Card.Content>
-            <Card.Tags tags={["Python 3", "FastAPI", "TypeScript", "React", "Tailwind CSS", "AWS", "AWS"]} />
+            <Card.Tags tags={["Python 3", "FastAPI", "TypeScript", "React", "Tailwind CSS", "Docker", "AWS"]} />
         </Card.Container>
     )
 }

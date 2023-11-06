@@ -29,9 +29,9 @@ export default function App() {
                         <Expirience.Aptiv />
                     </Card.CardGroup>
                     <Card.CardGroup id="projects" ref={projectsRef}>
-                        <Project />
-                        <Project />
-                        <Project />
+                        <Project.JungleGame />
+                        <Project.EventManager />
+                        <Project.IntroSpot />
                     </Card.CardGroup>
                     <footer>
                         Built with React and Tailwind CSS. Delivered to You from AWS S3.
