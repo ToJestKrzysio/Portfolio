@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
     return (
-        <header className="top-0 flex flex-col py-20 mb-10 lg:fixed lg:py-28 lg:h-full lg:justify-between lg:mb-0">
+        <header className="top-0 flex flex-col py-0 mb-28 lg:fixed lg:py-28 lg:h-full lg:justify-between lg:mb-0">
             <div>
                 <Link to="/">
-                    <h1 className="mb-2 text-4xl font-semibold">Krzysztof Płonka</h1>
+                    <h1 className="mb-2 text-5xl font-semibold">Krzysztof Płonka</h1>
                 </Link>
                 <h3 className="mb-4 text-lg lg:mb-16">Fullstack Developer</h3>
                 <nav className="flex-col hidden lg:flex gap-y-4">
