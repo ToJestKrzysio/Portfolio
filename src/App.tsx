@@ -1,7 +1,8 @@
-import { useLocation } from "react-router";
-import { RefObject, useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 
-import { About, Card, Expirience, Header, Project } from "@/components";
+import { About, Anchor, Card, Expirience, Header, Project } from "@/components";
+import { useScrollRefToId } from "@/hooks";
+
 
 export default function App() {
     const parentRef = useRef<HTMLDivElement>(null);
@@ -23,48 +24,22 @@ export default function App() {
                         <About />
                     </section>
                     <Card.CardGroup id="expirience" ref={expirienceRef}>
-                        <Expirience />
-                        <Expirience />
-                        <Expirience />
+                        <Expirience.SenseStreet />
+                        <Expirience.Umlaut />
+                        <Expirience.Aptiv />
                     </Card.CardGroup>
                     <Card.CardGroup id="projects" ref={projectsRef}>
-                        <Project />
-                        <Project />
-                        <Project />
+                        <Project.JungleGame />
+                        <Project.EventManager />
+                        <Project.IntroSpot />
                     </Card.CardGroup>
-                    <footer>
-                        Built with React and Tailwind CSS. Delivered to You from AWS S3.
+                    <footer className="text-sm text-slate-400">
+                        Built with <Card.WhiteAnchor href="https://react.dev/">React</Card.WhiteAnchor> and <Card.WhiteAnchor href="https://tailwindcss.com/">Tailwind CSS</Card.WhiteAnchor>.
+                        Delivered to You from <Card.WhiteAnchor href="https://aws.amazon.com/">AWS</Card.WhiteAnchor>.<br />
+                        Design based upon <Card.WhiteAnchor href="https://brittanychiang.com/">brittanychiang.com</Card.WhiteAnchor>
                     </footer>
                 </div>
             </div>
-        </div>
+        </div >
     );
-}
-
-
-
-function useScrollRefToId(refs: RefObject<HTMLDivElement>[], parent: RefObject<HTMLDivElement>, offset: number = 0) {
-    const location = useLocation();
-
-    useLayoutEffect(() => {
-        if (parent.current === null) return
-        if (location.hash === "") parent.current.scrollTo({ behavior: "smooth", top: 0 })
-
-
-        const selectedRef = refs.find(ref => !!ref.current && ref.current.id === location.hash.slice(1))
-        if (selectedRef === undefined || selectedRef.current === null) return
-
-        console.log("sel", selectedRef.current.getBoundingClientRect())
-        console.log("par", parent.current.getBoundingClientRect())
-        console.log("comp", (selectedRef.current!.getBoundingClientRect().top - parent.current.getBoundingClientRect().top - offset))
-
-        parent.current.scrollBy({
-            behavior: "smooth",
-            top: (
-                selectedRef.current!.getBoundingClientRect().top -
-                parent.current.getBoundingClientRect().top -
-                offset
-            )
-        })
-    }, [location, refs])
 }
