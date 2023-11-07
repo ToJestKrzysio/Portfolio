@@ -14,7 +14,7 @@ export default function App() {
 
     return (
         <div ref={parentRef} className="overflow-y-scroll bg-slate-900 selection:bg-lime-500/80 selection:text-slate-200">
-            <div className="max-w-screen-xl max-h-screen py-16 lg:py-20 mx-auto px-10 lg:px-28 lg:grid lg:grid-cols-2 lg:pt-28 gap-x-3 ">
+            <div className="max-w-screen-xl max-h-screen py-16 lg:py-20 mx-auto px-10 lg:px-28 lg:grid lg:grid-cols-2 lg:pt-28 gap-x-3">
                 {/* <div className="fixed inset-0 pointer-events-none lg:absolute" style={{
                 background: "radial-gradient(500px at top right, rgba(101, 163, 13, 0.4), transparent)",
             }} /> */}
