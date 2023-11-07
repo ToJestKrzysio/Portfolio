@@ -1,5 +1,6 @@
 import { Card } from "@/components"
 
+import EventMaster from "/EventMaster.png";
 import IntroSpotImg from "/IntroSpot.png";
 import JungleGameImg from "/JungleGame.png";
 
@@ -23,7 +24,7 @@ export function JungleGame() {
 export function EventManager() {
     return (
         <Card.Container>
-            {/* <Card.SidebarImage src={PlaceholderImage} alt="Placeholder" /> */}
+             <Card.SidebarImage src={EventMaster} alt="Placeholder" />
             <Card.Content>
                 <Card.HeaderAnchor href="https://github.com/ToJestKrzysio/EventMaster">Event Manager</Card.HeaderAnchor>
                 <p className="text-sm text-slate-400">
