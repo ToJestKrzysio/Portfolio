@@ -36,7 +36,7 @@ export function SenseStreet() {
 export function Umlaut() {
     return (
         <Card.Container>
-            <Card.Sidebar>04.2022 - 06.2022</Card.Sidebar>
+            <Card.Sidebar>04 - 06.2022</Card.Sidebar>
             <Card.Content>
                 <p className="text-sm">
                     <Card.HeaderAnchor href="https://www.umlaut.com/">Backend Developer - Umlaut</Card.HeaderAnchor>

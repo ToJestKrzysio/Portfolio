@@ -1,12 +1,20 @@
-import { RefObject, useLayoutEffect } from "react";
+import {RefObject, useLayoutEffect, useState} from "react";
 import { useLocation } from "react-router-dom";
 
 export default function useScrollRefToId(refs: RefObject<HTMLDivElement>[], parent: RefObject<HTMLDivElement>, offset: number = 0) {
     const location = useLocation();
+    const [hash, setHash] = useState("");
 
     useLayoutEffect(() => {
         if (parent.current === null) return
-        if (location.hash === "") parent.current.scrollTo({ behavior: "smooth", top: 0 })
+        if (hash === location.hash) return
+        setHash(location.hash)
+
+        if (location.hash === "") {
+            console.log("Scroll to top")
+            parent.current.scrollTo({ behavior: "smooth", top: 0 })
+            return
+        }
 
 
         const selectedRef = refs.find(ref => !!ref.current && ref.current.id === location.hash.slice(1))
@@ -21,4 +29,5 @@ export default function useScrollRefToId(refs: RefObject<HTMLDivElement>[], pare
             )
         })
     }, [location, refs])
+
 }
